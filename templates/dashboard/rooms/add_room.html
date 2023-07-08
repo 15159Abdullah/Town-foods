@@ -1,0 +1,106 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<body class="hold-transition sidebar-mini layout-fixed">
+ <div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container">
+        <h1>Add Rooms</h1>
+        <section class="content">
+            <div class="container-fluid">
+              <!-- SELECT2 EXAMPLE -->
+              <div class="card card-default">
+                <div class="card-body">
+               <form action="#"  method ="post"  enctype="multipart/form-data">
+                {% csrf_token %}
+                {% include 'accounts/alert.html' %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Name</label>
+                        <select class="form-control select2" name="name" style="width: 100%;">
+                            <option value="Family Room" selected="selected">Family Room</option>
+                            <option value="Deluxe Room">Deluxe Room</option>
+                            <option value="Classic Room">Classic Room</option>
+                            <option value="Superior Room">Superior Room</option>
+                            <option value="Luxury Room">Luxury Room</option>
+                            <option value="Suite Room">Suite Room</option>
+                        </select>
+                      </div>
+                      <!-- /.form-group -->
+                      <div class="form-group">
+                        <label>Room Price</label>
+                        <input class="form-control select2"  name="price" style="width: 100%;"></input>
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="imageUpload">Upload Image</label>
+                            <input type="file" class="form-control select2" name="image_file" style="width: 100%;" id="imageUpload" accept="image/*">
+                        </div>
+                      <div class="form-group">
+                        <label>Room No.</label>
+                        <input class="form-control select2" name = "room_no" style="width: 100%;"></input>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Bed Quantity</label>
+                        <input class="form-control select2" name = "bed_qty" style="width: 100%;">
+                        </input>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input select2" name="availability" value="1"  type="checkbox" id="roomAvailability">
+                          <label class="form-check-label" for="roomAvailability">
+                            Room Availability
+                          </label>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-6">
+                        
+                      <div class="form-group">
+                        <label>Room Size (meter)</label>
+                        <input class="form-control select2" name='size' style="width: 100%;"></input>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
+                </div>
+                </div>
+              </div>
+            </div>
+        </section>
+      </div>
+  </div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+  <!-- /.control-sidebar -->
+  
+ </div>
+</body>
+</html>
+{% endblock %}
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+
+

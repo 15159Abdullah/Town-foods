@@ -1,0 +1,97 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      
+      <span class="brand-text font-weight-light">TF & BBQ GRILL HOTEL</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{request.user}}</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item menu-open">
+            <a href="{% url 'home' %}" class="nav-link {% if 'home' in current_page %}active{% endif %} ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'user_list' %}" class="nav-link {% if 'user' in current_page %}active{% endif %}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Users
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'rooms_list' %}" class="nav-link {% if 'room' in current_page %}active{% endif %} ">
+              <i class="nav-icon fas fa-door-closed"></i>
+              <p>
+                Rooms
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'foods_list' %}" class="nav-link {% if 'food' in current_page %}active{% endif %} ">
+              <i class='nav-icon fas fa-utensils'></i>
+             
+              <p>
+                Foods
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'orders_list' %}" class="nav-link {% if 'order' in current_page %}active{% endif %} ">
+              <i class="nav-icon 	fas fa-shopping-cart"></i>
+              <p>
+                Orders
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'contact_list' %}" class="nav-link {% if 'contact' in current_page %}active{% endif %} ">
+              <i class="nav-icon fas fa-envelope-open"></i>
+              <p>Contacts</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'invoice_list' %}" class="nav-link {% if 'Invoice' in current_page %}active{% endif %} ">
+              <i class="nav-icon fas fa-file-alt"></i>
+              <p>
+                Invoices
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

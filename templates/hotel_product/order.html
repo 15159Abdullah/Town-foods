@@ -1,0 +1,75 @@
+{% extends 'hotel_product/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <body>
+
+   
+		<div class="hero-wrap" style="background-image: url({% static 'hotel/images/bg_3.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+          	<div class="text">
+	            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="{% url 'home' %}">Home</a></span> <span>Order</span></p>
+	            <h1 class="mb-4 bread">Your Order</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section contact-section bg-light">
+      <div class="container table-responsive">
+        <table class="table">
+            <thead>
+           
+              <tr>
+                <th scope="col">Room Name</th>
+                <th scope="col">Room No.</th>
+                <th scope="col">Guest Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Check In Date</th>
+                <th scope="col">Check Out Date</th>
+                <th scope="col">Status</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+           {% for data in order  %}
+              <tr>
+                <td class="">
+                  <a href="#"><img class="img-fluid img-thumbnail" style="max-width: 100px; max-height: 100px;" src="{{data.room.room_image.url}}"></a>
+                  <p>{{data.room.room_name}}</p>
+              </td>
+                <td class="">{{data.room.room_number}}</td>
+
+                <td class=""> {{data.guest_name}}</td>
+
+                <td class="">
+                    <span class="money">PKR {{data.room.room_price}}.00</span>
+                </td>
+
+                <td class="">
+                    <span class="money">{{data.check_in_date}}</span>
+                </td>
+
+                <td class="">
+                    <div><span class="money"></span>{{data.check_out_date}}</div>
+                </td>
+                <td><span class='text-success'><strong>Booked</strong></span></td>
+               </tr>
+               {% endfor %}
+            </tbody>
+           
+          </table>               
+    </div>
+</div>
+</div>
+    </section>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  </body>
+</html>
+{% endblock  %}

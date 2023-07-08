@@ -1,0 +1,64 @@
+{% extends 'dashboard/base.html' %}
+{% block title %} Admin | Contact List {% endblock %}
+{% block content %}
+{% load static %}
+<body class="hold-transition sidebar-mini layout-fixed">
+ <div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container">
+        <h1>Contacts</h1>
+    
+        <!-- Search form -->
+        <div class="form-group">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search">
+        </div>
+    
+        <!-- Table -->
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for contact in contacts  %}
+            <tr>
+              <td>{{contact.name}}</td>
+              <td>{{contact.email}}</td>
+              <td>{{contact.subject}}</td>
+              <td>{{contact.message}}</td>
+              <td>
+                <a href="{% url 'delete_contact' contact.id %}" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+            <!-- Add more rows here -->
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+  <!-- /.control-sidebar -->
+  
+ </div>
+</body>
+</html>
+{% endblock %}
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+
+

@@ -1,0 +1,72 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<body class="hold-transition sidebar-mini layout-fixed">
+ <div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container">
+        <h1>Invoices</h1>
+    
+        <!-- Search form -->
+        <div class="form-group">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search">
+        </div>
+    
+        <!-- Table -->
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>INV NO.</th>
+              <th>Room</th>
+              <th>Room No</th>
+              <th>Guest</th>
+              <th>Price</th>
+              <th>In Date</th>
+              <th>Out Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+        <tbody>
+          {% for invoice in invoices  %}
+          <tr>
+            <td>{{invoice.id}}</td>
+            <td>{{invoice.room.room_name}}</td>
+            <td>{{invoice.booked_room_number}}</td>
+            <td>{{invoice.guest_name}}</td>
+            <td>{{invoice.booking_price}}</td>
+            <td>{{invoice.check_in_date}}</td>
+            <td>{{invoice.check_out_date}}</td>
+            <td>
+              <a href="{% url 'invoice_view' invoice.id %}" class="btn btn-primary btn-sm">Print</a>
+              <a href="{% url 'delete_invoice' invoice.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+          <!-- Add more rows here -->
+        </tbody>
+      </table>
+      </div>
+  </div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+  <!-- /.control-sidebar -->
+  
+ </div>
+</body>
+</html>
+{% endblock %}
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+
+

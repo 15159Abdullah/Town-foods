@@ -1,0 +1,75 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<body class="hold-transition sidebar-mini layout-fixed">
+ <div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png'  %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container">
+        <h1>Add Food Menu</h1>
+        <section class="content">
+            <div class="container-fluid">
+              <!-- SELECT2 EXAMPLE -->
+              <div class="card card-default">
+                <div class="card-body">
+               <form action="#"  method ="post"  enctype="multipart/form-data">
+                {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Item Name</label>
+                        <input class="form-control select2" name='name' style="width: 100%;">
+                        </input>
+                      </div>
+                      <!-- /.form-group -->
+                      <div class="form-group">
+                        <label>Price</label>
+                        <input class="form-control select2" name='price' style="width: 100%;"></input>
+                      </div>
+                      <!-- /.form-group -->
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="imageUpload">Upload Image</label>
+                            <input type="file" class="form-control select2" name='image' style="width: 100%;" id="imageUpload" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Descriptions</label>
+                            <textarea class="form-control select2" name='description' style="width: 100%;" id="description"></textarea>
+                        </div> 
+                    </div>
+                  </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
+                </div>
+                </div>
+              </div>
+            </div>
+        </section>
+      </div>
+  </div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+  <!-- /.control-sidebar -->
+  
+ </div>
+</body>
+</html>
+{% endblock %}
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+
+
